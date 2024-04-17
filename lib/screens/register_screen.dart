@@ -138,7 +138,7 @@ class _RegisterScreenState extends State {
                       child: TextFormField(
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            labelText: " Confirm Password",
+                            labelText: "Confirm Password",
                             labelStyle: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 12,
@@ -174,20 +174,23 @@ class _RegisterScreenState extends State {
                         Container(
                           margin: const EdgeInsets.only(left: 40),
                           child: Text(
-                            "Already have an account",
+                            "Already have an account?",
                             style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w400,
                                 color: const Color.fromRGBO(0, 0, 0, 0.6)),
                           ),
+                        ),
+                        const SizedBox(
+                          width: 2,
                         ),
                         GestureDetector(
-                          child: Text(
-                            "Sign in",
-                            style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400,
-                                color: const Color.fromRGBO(0, 0, 0, 0.6)),
-                          ),
+                          child: Text("Sign in",
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w400,
+                                  color:
+                                      const Color.fromRGBO(14, 161, 125, 1))),
                         ),
+
                         // const Spacer()
                       ],
                     )
