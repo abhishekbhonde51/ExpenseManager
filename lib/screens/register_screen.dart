@@ -138,7 +138,7 @@ class _RegisterScreenState extends State {
                       child: TextFormField(
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            labelText: "Confirm Password",
+                            labelText: " Confirm Password",
                             labelStyle: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 12,
