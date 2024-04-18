@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:expensemanager/screens/menu_drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +10,7 @@ void main() => runApp(const TrasactionScreen());
 
 class TrasactionScreen extends StatefulWidget {
   const TrasactionScreen({super.key});
-
+  @override
   State createState() => _TrasactionScreenState();
 }
 
@@ -48,26 +50,80 @@ class _TrasactionScreenState extends State {
                               color: Colors.blue,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(100))),
-                          child: Image.asset(''),
+                          // child: Image.asset(''),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Medicine",
+                                    // textAlign: TextAlign.left,
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 15,
+                                        color: Colors.black),
+                                  ),
+                                  Text(
+                                    "Lorem Ipsum is simply dummy text of the ",
+                                    // textAlign: TextAlign.left,
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w400,
+                                        color:
+                                            const Color.fromRGBO(0, 0, 0, 0.8)),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
                         ),
                         Column(
                           children: [
-                            Text(
-                              "Medicine",
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 15,
-                                  color: Colors.black),
+                            Row(
+                              children: [
+                                GestureDetector(
+                                  child: Container(
+                                    width: 20,
+                                    height: 20,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.orange,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(100))),
+                                    child: const Icon(
+                                      Icons.delete,
+                                      size: 15,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "500",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 15,
+                                      color: Colors.black),
+                                )
+                              ],
                             ),
-                            Text(
-                              "Lorem Ipsum is simply dummy text of the ",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color.fromRGBO(0, 0, 0, 0.8)),
-                            )
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text("3 June | 11.50 AM",
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 10,
+                                    color: const Color.fromRGBO(0, 0, 0, 0.6))),
                           ],
-                        ),
+                        )
                       ],
                     ),
                   )
