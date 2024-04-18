@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
-    const MenuDriver(),
+    const MenuDrawer(),
   );
 }
 
-class MenuDriver extends StatelessWidget {
-  const MenuDriver({super.key});
+class MenuDrawer extends StatelessWidget {
+  const MenuDrawer({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

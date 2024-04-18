@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:expensemanager/screens/menu_drawer.dart';
 import 'package:expensemanager/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -93,7 +94,7 @@ class _RegisterScreenState extends State {
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                   color: const Color.fromRGBO(0, 0, 0, 0.4)),
-                              contentPadding: EdgeInsets.only(left: 30)),
+                              contentPadding: const EdgeInsets.only(left: 30)),
                         ),
                       ),
                       const SizedBox(
@@ -169,7 +170,7 @@ class _RegisterScreenState extends State {
                         ),
                       ),
                       const SizedBox(
-                        height: 200,
+                        height: 110,
                       ),
                       Row(
                         children: [
