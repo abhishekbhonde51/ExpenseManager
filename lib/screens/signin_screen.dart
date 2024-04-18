@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:expensemanager/screens/menu_drawer.dart';
 import 'package:expensemanager/screens/register_screen.dart';
 import 'package:expensemanager/screens/signin_screen.dart';
+import 'package:expensemanager/screens/trasaction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -95,7 +96,7 @@ class _RegisterScreenState extends State {
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                   color: const Color.fromRGBO(0, 0, 0, 0.4)),
-                              contentPadding: EdgeInsets.only(left: 30)),
+                              contentPadding: const EdgeInsets.only(left: 30)),
                         ),
                       ),
                       const SizedBox(
@@ -104,20 +105,29 @@ class _RegisterScreenState extends State {
                       const SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        height: 49,
-                        width: 280,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
-                          color: Color.fromRGBO(14, 161, 125, 1),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Sign in",
-                            style: GoogleFonts.poppins(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
+                      GestureDetector(
+                        onTap: () => {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const TrasactionScreen(),
+                              ))
+                        },
+                        child: Container(
+                          height: 49,
+                          width: 280,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                            color: Color.fromRGBO(14, 161, 125, 1),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Sign in",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
                           ),
                         ),
                       ),
