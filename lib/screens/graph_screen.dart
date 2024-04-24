@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:expensemanager/screens/menu_drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:plant_icons/plant_icons.dart';
@@ -63,7 +64,7 @@ class _GraphScreenState extends State<GraphScreen> {
             width: 10,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Container(
+            SizedBox(
               height: 320,
               width: 284,
               child: Column(
