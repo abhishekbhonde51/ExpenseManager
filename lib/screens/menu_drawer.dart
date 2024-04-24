@@ -1,4 +1,5 @@
 import 'package:expensemanager/screens/category_screen.dart';
+import 'package:expensemanager/screens/graph_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -81,32 +82,40 @@ class MenuDrawer extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    height: 40,
-                    width: 184,
-                    decoration: const BoxDecoration(
-                      // color: Color.fromRGBO(14, 161, 125, 0.15),
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(20)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.graphic_eq),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Graph",
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              // color: const Color.fromRGBO(14, 161, 125, 1)
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const GraphScreen()))
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 184,
+                      decoration: const BoxDecoration(
+                        // color: Color.fromRGBO(14, 161, 125, 0.15),
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.graphic_eq),
+                            const SizedBox(
+                              width: 5,
                             ),
-                          )
-                        ],
+                            Text(
+                              "Graph",
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                                // color: const Color.fromRGBO(14, 161, 125, 1)
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
