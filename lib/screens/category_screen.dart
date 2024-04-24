@@ -9,6 +9,33 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
+  void bottomSheet() {
+    showBottomSheet(
+        context: context,
+        builder: (context) {
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+                children: [
+                  Row(
+                    children: [
+                     Column(
+                      children: [
+                         Container(
+                        height: 97,
+                        width: 74,
+                        child: Image.asset(''),
+                      ),
+                      ],
+                     )
+                    ],
+                  )
+                ],
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,6 +96,51 @@ class _CategoryScreenState extends State<CategoryScreen> {
         },
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 46,
+            width: 166,
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(67)),
+                boxShadow: [
+                  BoxShadow(
+                      offset: Offset(0, 4),
+                      blurRadius: 4,
+                      color: Color.fromRGBO(0, 0, 0, 0.25))
+                ]),
+            child: FloatingActionButton(
+              backgroundColor: Colors.white,
+              elevation: 0,
+              onPressed: () {},
+              child: Row(
+                children: [
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  Container(
+                    height: 32,
+                    width: 32,
+                    decoration: const BoxDecoration(
+                        color: Color.fromRGBO(14, 161, 125, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  const Text("Add Category"),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

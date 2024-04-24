@@ -38,6 +38,9 @@ class _GraphScreenState extends State<GraphScreen> {
       drawer: const MenuDrawer(),
       body: Column(
         children: [
+          const SizedBox(
+            height: 10,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -61,7 +64,7 @@ class _GraphScreenState extends State<GraphScreen> {
           ),
           Divider(),
           const SizedBox(
-            width: 10,
+            height: 20,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             SizedBox(
@@ -228,7 +231,33 @@ class _GraphScreenState extends State<GraphScreen> {
                 ],
               ),
             ),
-          ])
+          ]),
+          const SizedBox(
+            height: 30,
+          ),
+          SizedBox(
+            height: 24,
+            width: 230,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "Total",
+                  style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                ),
+                Text(
+                  "₹ 23432",
+                  style: GoogleFonts.poppins(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
