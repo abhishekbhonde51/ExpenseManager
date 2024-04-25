@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import "package:google_fonts/google_fonts.dart";
 
@@ -11,6 +12,110 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
+  Future showMyDialog() async {
+    return await showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          content: Container(
+            height: 200,
+            width: 300,
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                    Radius.circular(14))), // Specify the desired width
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Delete Category",
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 10),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(
+                      "Are you sure you want to delete the selected category?",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            const Color.fromRGBO(14, 161, 125, 1)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        "Delete",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            const Color.fromRGBO(140, 128, 128, 0.2)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        "Cancel",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   void bottomSheet() {
     showModalBottomSheet(
         isScrollControlled: true,
@@ -41,7 +146,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 50),
-                  child: Text("Add"),
+                  child: const Text("Add"),
                 ),
                 const SizedBox(
                   height: 20,
@@ -62,7 +167,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 const SizedBox(
                   height: 7,
                 ),
-                Container(
+                SizedBox(
                   height: 36,
                   width: 316,
                   child: TextFormField(
@@ -103,7 +208,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 const SizedBox(
                   height: 7,
                 ),
-                Container(
+                SizedBox(
                   height: 36,
                   width: 316,
                   child: TextFormField(
@@ -179,45 +284,50 @@ class _CategoryScreenState extends State<CategoryScreen> {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(0),
-            child: Container(
-                height: 150,
-                width: 145,
-                decoration: const BoxDecoration(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    borderRadius: BorderRadius.all(Radius.circular(14)),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(1, 2),
-                          blurRadius: 8,
-                          color: Color.fromRGBO(0, 0, 0, 0.15))
-                    ]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        const SizedBox(
-                          height: 13,
-                        ),
-                        Container(
-                          height: 74,
-                          width: 74,
-                          child: Image.asset('Assets/category.png'),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Food",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16,
-                              color: const Color.fromRGBO(33, 33, 33, 1)),
-                        )
-                      ],
-                    )
-                  ],
-                )),
+            child: GestureDetector(
+              onDoubleTap: () {
+                showMyDialog();
+              },
+              child: Container(
+                  height: 150,
+                  width: 145,
+                  decoration: const BoxDecoration(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      borderRadius: BorderRadius.all(Radius.circular(14)),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: Offset(1, 2),
+                            blurRadius: 8,
+                            color: Color.fromRGBO(0, 0, 0, 0.15))
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          const SizedBox(
+                            height: 13,
+                          ),
+                          SizedBox(
+                            height: 74,
+                            width: 74,
+                            child: Image.asset('Assets/category.png'),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Food",
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                                color: const Color.fromRGBO(33, 33, 33, 1)),
+                          )
+                        ],
+                      )
+                    ],
+                  )),
+            ),
           );
         },
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -242,7 +352,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   ]),
               child: GestureDetector(
                 onTap: bottomSheet,
-                child: Container(
+                child: SizedBox(
                   child: Row(
                     children: [
                       const SizedBox(
